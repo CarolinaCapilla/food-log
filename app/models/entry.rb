@@ -1,0 +1,1 @@
+class Entry < ApplicationRecord; end
