@@ -1,22 +1,33 @@
-<p>
-  <strong>Meal type:</strong>
-  <%= @entry.meal_type %>
-</p>
-<p>
-  <strong>Calories:</strong>
-  <%= @entry.calories %>
-</p>
-<p>
-  <strong>Proteins:</strong>
-  <%= @entry.proteins %>
-</p>
-<p>
-  <strong>Carbohydrates:</strong>
-  <%= @entry.carbohydrates %>
-</p>
-<p>
-  <strong>Fats:</strong>
-  <%= @entry.fats %>
-</p>
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path, class: "button is-link is-outlined is-small is-fullwidth" %>
+<%= content_for :title do %>
+  <%= @entry.meal_type %> &ndash; <%= DateTime.now.to_s(:nice_date) %>
+<% end %>
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+        <%= @entry.meal_type %>
+      </p>
+      <div class="panel-block">
+        Calories: <%= @entry.calories %>
+      </div>
+      <div class="panel-block">
+        Proteins: <%= @entry.proteins %>
+      </div>
+      <div class="panel-block">
+        Carbohydrates: <%= @entry.carbohydrates %>
+      </div>
+      <div class="panel-block">
+        Fats: <%= @entry.fats %>
+      </div>
+    </nav>
+    <div class="column is-mobile">
+      <div class="column">
+        <%= link_to 'Edit', edit_entry_path(@entry), class: "button is-success is-outlined is-small is-fullwidth" %>
+        <%= link_to 'Delete', @entry, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger is-outlined is-small is-fullwidth mt-3" %>
+        <%= link_to 'Back', entries_path, class: "button is-link is-outlined is-small is-fullwidth mt-3" %>
+      </div>
+      <div class="column">
+      </div>
+    </div>
+  </div>
+</div>
