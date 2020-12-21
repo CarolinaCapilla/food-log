@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class EntriesControllerTest < ActionDispatch::IntegrationTest
-  setup { @entry = entries(:one) }
+  setup { @entry = entries(:breakfast) }
 
   test 'should get index' do
     get entries_url
