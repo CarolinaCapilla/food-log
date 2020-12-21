@@ -11,27 +11,26 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_12_21_185708) do
-
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "categories", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'categories', force: :cascade do |t|
+    t.string 'title'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "entries", force: :cascade do |t|
-    t.string "meal_type"
-    t.integer "calories"
-    t.integer "proteins"
-    t.integer "carbohydrates"
-    t.integer "fats"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_entries_on_category_id"
+  create_table 'entries', force: :cascade do |t|
+    t.string 'meal_type'
+    t.integer 'calories'
+    t.integer 'proteins'
+    t.integer 'carbohydrates'
+    t.integer 'fats'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'category_id'
+    t.index %w[category_id], name: 'index_entries_on_category_id'
   end
 
-  add_foreign_key "entries", "categories"
+  add_foreign_key 'entries', 'categories'
 end

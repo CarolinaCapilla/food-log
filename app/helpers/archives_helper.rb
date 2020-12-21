@@ -1,2 +1,1 @@
-module ArchivesHelper
-end
+module ArchivesHelper; end
