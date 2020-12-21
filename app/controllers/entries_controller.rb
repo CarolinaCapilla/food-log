@@ -55,7 +55,8 @@ class EntriesController < ApplicationController
       :calories,
       :proteins,
       :carbohydrates,
-      :fats
+      :fats,
+      :category_id
     )
   end
 end

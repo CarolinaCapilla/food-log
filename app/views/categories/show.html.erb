@@ -1,0 +1,19 @@
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-block">
+        <%= @category.title %>
+      </p>
+      <p class="panel-block">
+        <%= @category.created_at.to_s(:nice_date) %>
+      </p>
+    </nav>
+    <div class="column is-mobile">
+      <div class="column">
+        <%= link_to 'Edit', edit_category_path(@category), class: "button is-success is-outlined is-small is-fullwidth" %>
+        <%= link_to 'Delete', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger is-outlined is-small is-fullwidth mt-3" %>
+        <%= link_to 'Back', categories_path, class: "button is-link is-outlined is-small is-fullwidth mt-3" %>
+      </div>
+    </div>
+  </div>
+</div>
